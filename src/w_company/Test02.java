@@ -27,7 +27,7 @@ public class Test02 {
 
 }
 
-class Analyze {
+class Analyze { 
 
 	public Bar[] analyzeLine(String line) {
 		List<Bar> barList = new ArrayList<Bar>();
