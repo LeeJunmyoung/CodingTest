@@ -7,7 +7,7 @@ class BinaryCount {
 
       public static void main(String[] args) {
     	  System.out.println(binaryCount(7));
-    	  
+    	  System.out.println(count(improveCount(22)));
       }
       static int binaryCount(int number) {
     	 
@@ -18,6 +18,22 @@ class BinaryCount {
     			  count++;
     		  }
     		  number=number/2;
+    	  }
+    	  return count;
+      }
+      
+      static String improveCount(int number){
+    	  if(number==0)
+    		  return "0";
+    	  
+    	  return improveCount(number/2)+number%2;
+      }
+      
+      static int count(String binary){
+    	  int count=0;
+    	  for(int num=0; num<binary.length();num++){
+    		  if(binary.charAt(num)=='1')
+    			  count++;
     	  }
     	  return count;
       }
