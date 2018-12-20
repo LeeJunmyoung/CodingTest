@@ -1,18 +1,17 @@
 package t_company;
 
-
 //LCS알고리즘에서 연속되는 공통된 글자에서 가장 긴거 찾기
 public class LCSApplication {
-	
 
 	public static void main(String args[]) {
 		String first = "penpineapple";
 		String second = "applepen";
 		System.out.println(LCS(first, second));
 		System.out.println(improveLCS(first, second));
+		System.out.println(improveLCS2(first, second));
 	}
 
-	static String LCS(String first, String second) { //제출한거
+	static String LCS(String first, String second) { // 제출한거
 		int longestCommon = 0;
 		int compareValue = 0;
 		String commonstring = null;
@@ -34,7 +33,7 @@ public class LCSApplication {
 								longestCommon++;
 							}
 						} catch (StringIndexOutOfBoundsException e) {
-							
+
 						}
 
 					}
@@ -51,8 +50,7 @@ public class LCSApplication {
 		return commonstring;
 	}
 
-	
-	static String improveLCS(String first, String second) { //제출한거
+	static String improveLCS(String first, String second) { // 제출한거
 		int longestCommon = 0;
 		int compareValue = 0;
 		String commonstring = null;
@@ -67,14 +65,13 @@ public class LCSApplication {
 					String common = "";
 
 					for (int k = 0; k < minoftwo; k++) {
-						if(i+k>=first.length()||j+k>=second.length())
+						if (i + k >= first.length() || j + k >= second.length())
 							break;
-						
+
 						if (first.charAt(i + k) == second.charAt(j + k)) {
 							common = common.concat(String.valueOf(first.charAt(i + k)));
 							longestCommon++;
 						}
-						
 
 					}
 					if (longestCommon > compareValue) {
@@ -89,6 +86,25 @@ public class LCSApplication {
 		}
 		return commonstring;
 	}
-	
-}
 
+	static String improveLCS2(String first, String second) {
+		String shorter = (first.length() < second.length()) ? first : second;
+		String longer = (first.length() < second.length()) ? second : first;
+
+		String result = "";
+		
+		for (int y = 0; y < shorter.length(); y++) {
+			for (int x = 0; x < shorter.length()-y; x++) {
+				String compareString = shorter.substring(y, shorter.length() - x);
+				if (longer.contains(compareString) && compareString.length() > result.length()) {
+					result = compareString;
+				}
+
+			}
+
+		}
+
+		return result;
+	}
+
+}

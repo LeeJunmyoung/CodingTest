@@ -10,7 +10,7 @@ class BinaryCount {
     	  int a = -7;
     	  System.out.println(Integer.toBinaryString(-7));
     	  System.out.println(32-binaryCount(-7)+1); //음수일때
-    	  System.out.println(count(improveCount(22)));
+    	  System.out.println(count(improveCount(22))); 
       }
       static int binaryCount(int number) {
     	 
@@ -24,6 +24,22 @@ class BinaryCount {
     		  number=number/2;
     	  }
     	  
+    	  return count;
+      }
+      
+      static String improveCount(int number){
+    	  if(number==0)
+    		  return "0";
+    	  
+    	  return improveCount(number/2)+number%2;
+      }
+      
+      static int count(String binary){
+    	  int count=0;
+    	  for(int num=0; num<binary.length();num++){
+    		  if(binary.charAt(num)=='1')
+    			  count++;
+    	  }
     	  return count;
       }
       
