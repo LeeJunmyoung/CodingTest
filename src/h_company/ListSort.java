@@ -23,8 +23,8 @@ public class ListSort {
 		
 		for(int num = 0; num < a.size()+b.size();num++) {
 			
-			Integer aVal = i < a.size() ? a.get(i) : new Integer(999);
-			Integer bVal = j < b.size() ? b.get(j) : new Integer(999);
+			Integer aVal = i < a.size() ? a.get(i) : Integer.MAX_VALUE;
+			Integer bVal = j < b.size() ? b.get(j) : Integer.MAX_VALUE;
 			
 			if(aVal < bVal) {
 				c.add(aVal);
